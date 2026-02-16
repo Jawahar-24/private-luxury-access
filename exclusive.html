@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exclusive Access</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+  <h1>Exclusive Access</h1>
+
+  <div class="price">
+    ₹49 – Single Video<br>
+    ₹99 – 3 Videos<br>
+    <b>₹199 – Unlimited</b>
+  </div>
+
+  <button class="btn btn-gold" onclick="pay(49)">Pay ₹49</button>
+  <button class="btn btn-gold" onclick="pay(99)">Pay ₹99</button>
+  <button class="btn btn-dark" onclick="pay(199)">Best • ₹199</button>
+</div>
+
+<div class="overlay" id="overlay">
+  <h2>Processing Payment</h2>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
