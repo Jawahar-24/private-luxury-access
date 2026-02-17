@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" href="style.css"></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
 <body>
 
 <div class="card">
-<h1>Payment Initiated</h1>
+  <h1>Payment Initiated</h1>
+  <p>If your payment was successful, send us a message on WhatsApp or Instagram to get instant access.</p>
 
-<script>
-const p = JSON.parse(localStorage.getItem("paymentData"));
-const msg = encodeURIComponent(`Paid ₹${p.amount} for ${p.plan}\nInstagram: ${p.instagram}`);
-document.write(`<a href="https://wa.me/919620151434?text=${msg}"><button class="btn btn-dark">WhatsApp</button></a>`);
-</script>
+  <div id="wa-btn-container"></div>
 
-<a href="https://ig.me/m/thelustframework">
-<button class="btn btn-gold">Instagram</button>
-</a>
+  <script>
+    const p = JSON.parse(localStorage.getItem("paymentData"));
+    if(p) {
+        const msg = encodeURIComponent(`Paid ₹${p.amount} for ${p.plan}\nInstagram: ${p.instagram}`);
+        const container = document.getElementById("wa-btn-container");
+        container.innerHTML = `<a href="https://wa.me/919620151434?text=${msg}" style="text-decoration:none;"><button class="btn btn-dark">Message on WhatsApp</button></a>`;
+    }
+  </script>
+
+  <a href="https://ig.me/m/thelustframework" style="text-decoration:none;">
+    <button class="btn btn-gold">Message on Instagram</button>
+  </a>
 </div>
 
 </body>
