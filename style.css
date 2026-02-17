@@ -1,29 +1,20 @@
 /* ======================================================
-   GLOBAL BACKGROUND — CINEMATIC LUXURY
+   GLOBAL BACKGROUND & RESET — CINEMATIC LUXURY
    ====================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
 
 body {
   background:
     radial-gradient(circle at top, rgba(247,215,116,0.05), transparent 45%),
     radial-gradient(circle at bottom, rgba(0,0,0,0.95), #000 70%);
+  background-color: #050505;
   background-attachment: fixed;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.88) 78%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* ======================================================
-   WRAPPER
-   ====================================================== */
-
-.exclusive-wrapper {
+  color: #fff;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -31,181 +22,200 @@ body::before {
   padding: 20px;
 }
 
-/* ======================================================
-   EXCLUSIVE CARD (MOBILE FIRST)
-   ====================================================== */
-
-.exclusive-card {
-  width: 100%;
-  max-width: 380px;
-  background: linear-gradient(180deg, #181818, #0c0c0c);
-  border-radius: 28px;
-  padding: 32px 22px;
-  box-shadow: 0 40px 120px rgba(0,0,0,0.9);
-  text-align: center;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.88) 78%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* ======================================================
-   HEADINGS
+   STANDARD CARDS (For Index, Age, Free, Choice, etc.)
    ====================================================== */
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: linear-gradient(180deg, #181818, #0c0c0c);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.9);
+  text-align: center;
+  border: 1px solid rgba(247, 215, 116, 0.08);
+}
 
-.exclusive-title {
-  font-size: 22px;
+.card h1 {
+  font-size: 26px;
   font-weight: 600;
   color: #f7d774;
-  margin-bottom: 4px;
+  margin-bottom: 20px;
 }
 
-.exclusive-subtitle {
-  font-size: 13px;
-  opacity: 0.75;
-  margin-bottom: 22px;
-}
-
-/* ======================================================
-   PLANS LAYOUT
-   ====================================================== */
-
-.plans {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.plan {
-  background: #111;
-  border-radius: 20px;
-  padding: 16px;
-  position: relative;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.plan:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.7);
-}
-
-.plan h2 {
-  font-size: 22px;
-  margin: 6px 0;
-}
-
-.plan p {
-  font-size: 13px;
+.card p {
+  font-size: 14px;
   opacity: 0.8;
+  margin-bottom: 20px;
 }
 
 /* ======================================================
-   PLAN TAGS
+   INPUTS & FORMS
    ====================================================== */
-
-.plan-tag {
-  position: absolute;
-  top: -10px;
-  left: 16px;
-  background: #333;
-  color: #ccc;
-  padding: 4px 10px;
-  border-radius: 10px;
-  font-size: 11px;
+input {
+  width: 100%;
+  padding: 15px 18px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+  background: #111;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-.plan-tag.gold,
-.plan-tag.crown {
-  background: linear-gradient(135deg, #f7d774, #c9a227);
-  color: #000;
+input::placeholder { color: #666; }
+input:focus {
+  border-color: #f7d774;
+  box-shadow: 0 0 12px rgba(247,215,116,0.15);
 }
 
-/* ======================================================
-   PLAN HIGHLIGHTS
-   ====================================================== */
-
-.highlight {
-  border: 1px solid #f7d77455;
-}
-
-.lifetime {
-  border: 1px solid #f7d774;
-  background: radial-gradient(circle at top, #1f1f1f, #0b0b0b);
+.input-error {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 12px rgba(255,77,77,0.2) !important;
 }
 
 /* ======================================================
    BUTTONS
    ====================================================== */
-
-.plan-btn {
+.btn {
+  display: inline-block;
   width: 100%;
-  margin-top: 12px;
-  padding: 14px;
-  border-radius: 14px;
-  font-size: 14px;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-size: 15px;
   font-weight: 600;
   border: none;
   cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.plan-btn.dark {
-  background: #000;
-  color: #fff;
-}
+.btn:active { transform: scale(0.98); }
 
-.plan-btn.gold,
-.plan-btn.premium {
+.btn-gold {
   background: linear-gradient(135deg, #f7d774, #c9a227);
   color: #000;
+  box-shadow: 0 8px 24px rgba(247,215,116,0.25);
+}
+.btn-gold:hover {
+  box-shadow: 0 12px 32px rgba(247,215,116,0.4);
+  transform: translateY(-2px);
 }
 
-.plan-btn.premium {
-  font-size: 15px;
+.btn-dark {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
 }
+.btn-dark:hover { background: #222; border-color: #555; transform: translateY(-2px); }
+
+.btn-soft {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #333;
+}
+.btn-soft:hover { background: #1a1a1a; color: #fff; }
+
+.row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+.row .btn { margin-bottom: 0; }
 
 /* ======================================================
-   SOCIAL PROOF & FOOTER
+   EXCLUSIVE PAGE SPECIFICS
    ====================================================== */
-
-.choice-counter,
-.scarcity-text {
-  font-size: 12px;
-  margin-top: 6px;
-  color: #f7d774;
-  opacity: 0.85;
+.exclusive-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.exclusive-note {
-  margin-top: 18px;
-  font-size: 12px;
-  opacity: 0.7;
+.exclusive-card {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(180deg, #181818, #0c0c0c);
+  border-radius: 28px;
+  padding: 36px 28px;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.9);
+  text-align: center;
+  border: 1px solid rgba(247, 215, 116, 0.1);
 }
+
+.exclusive-title { font-size: 26px; font-weight: 600; color: #f7d774; margin-bottom: 6px; }
+.exclusive-subtitle { font-size: 14px; opacity: 0.75; margin-bottom: 28px; letter-spacing: 1px; }
+
+.plans { display: flex; flex-direction: column; gap: 16px; }
+
+.plan {
+  background: #111;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid #222;
+}
+.plan:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(0,0,0,0.5); border-color: #333; }
+
+.plan h2 { font-size: 26px; margin: 8px 0; color: #fff; }
+.plan p { font-size: 14px; opacity: 0.8; line-height: 1.4; }
+
+.plan-tag {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #ccc;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.plan-tag.gold, .plan-tag.crown { background: linear-gradient(135deg, #f7d774, #c9a227); color: #000; box-shadow: 0 4px 12px rgba(247,215,116,0.3); }
+
+.highlight { border: 1px solid rgba(247, 215, 116, 0.3); }
+.lifetime { border: 1px solid #f7d774; background: radial-gradient(circle at top, #1f1f1f, #0b0b0b); }
+
+.plan-btn { width: 100%; margin-top: 16px; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s ease; }
+.plan-btn.dark { background: #000; color: #fff; border: 1px solid #333; }
+.plan-btn.dark:hover { background: #111; }
+.plan-btn.gold, .plan-btn.premium { background: linear-gradient(135deg, #f7d774, #c9a227); color: #000; box-shadow: 0 6px 16px rgba(247,215,116,0.2); }
+.plan-btn.gold:hover, .plan-btn.premium:hover { box-shadow: 0 10px 24px rgba(247,215,116,0.4); transform: translateY(-2px); }
+
+.choice-counter, .scarcity-text { font-size: 13px; margin-top: 10px; color: #f7d774; opacity: 0.9; font-weight: 500; }
+.exclusive-note { margin-top: 24px; font-size: 13px; opacity: 0.5; }
 
 /* ======================================================
-   RESPONSIVE — DESKTOP & LARGE SCREENS
+   OVERLAY (Payment Processing)
    ====================================================== */
-
-@media (min-width: 768px) {
-  .exclusive-card {
-    max-width: 460px;
-    padding: 36px 28px;
-  }
-
-  .exclusive-title {
-    font-size: 24px;
-  }
-
-  .plan h2 {
-    font-size: 24px;
-  }
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-
-@media (min-width: 1024px) {
-  .plan.lifetime {
-    box-shadow:
-      0 0 90px rgba(247,215,116,0.18),
-      0 0 160px rgba(247,215,116,0.08);
-  }
-}
-
-@media (min-width: 1200px) {
-  .exclusive-card {
-    max-width: 520px;
-  }
-}
+.overlay h2 { color: #f7d774; margin-bottom: 10px; font-size: 24px; }
+.overlay p { color: #ccc; font-size: 15px; }
