@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Exclusive Access</title>
-
-  <!-- Mobile friendly -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Styles -->
+  <title>Exclusive Access</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script>guard(true);</script>
 </head>
 <body>
 
-<!-- Page Wrapper -->
 <div class="exclusive-wrapper">
   <div class="exclusive-card">
 
@@ -20,82 +17,48 @@
     <p class="exclusive-subtitle">Private • Premium • Members Only</p>
 
     <div class="plans">
-
-      <!-- ₹49 -->
       <div class="plan">
         <span class="plan-tag">Starter</span>
         <h2>₹49</h2>
         <p>Single Video</p>
-        <button class="plan-btn dark" onclick="pay(49, 'single')">
-          Unlock ₹49
-        </button>
+        <button class="plan-btn dark" onclick="pay(49, 'single')">Unlock ₹49</button>
       </div>
 
-      <!-- ₹99 -->
       <div class="plan">
         <span class="plan-tag">Popular</span>
         <h2>₹99</h2>
         <p>3 Videos</p>
-        <button class="plan-btn dark" onclick="pay(99, 'three')">
-          Unlock ₹99
-        </button>
+        <button class="plan-btn dark" onclick="pay(99, 'three')">Unlock ₹99</button>
       </div>
 
-      <!-- ₹199 -->
       <div class="plan highlight">
         <span class="plan-tag gold">Best Value</span>
         <h2>₹199</h2>
         <p>10 Videos</p>
-        <button class="plan-btn gold" onclick="pay(199, 'ten')">
-          Unlock 10 Videos
-        </button>
+        <button class="plan-btn gold" onclick="pay(199, 'ten')">Unlock 10 Videos</button>
       </div>
 
-      <!-- ₹499 Lifetime -->
       <div class="plan lifetime">
         <span class="plan-tag crown">👑 Lifetime</span>
         <h2>₹499</h2>
-        <p>
-          1000+ Videos<br>
-          <small>One-time payment</small>
-        </p>
+        <p>1000+ Videos<br><small>One-time payment</small></p>
 
-        <p class="scarcity-text">
-          ⏳ <span id="slotsLeft">7</span> lifetime slots left today
-        </p>
+        <p class="scarcity-text">⏳ <span id="slotsLeft">7</span> lifetime slots left today</p>
+        <p class="choice-counter">⭐ Chosen by <span id="chosenCount">438</span> members</p>
 
-        <p class="choice-counter">
-          ⭐ Chosen by <span id="chosenCount">438</span> members
-        </p>
-
-        <button class="plan-btn premium" onclick="pay(499, 'lifetime')">
-          Best • Lifetime Access
-        </button>
+        <button class="plan-btn premium" onclick="pay(499, 'lifetime')">Best • Lifetime Access</button>
       </div>
-
     </div>
 
-    <p class="exclusive-note">
-      🔒 Secure UPI • Instant Access via DM
-    </p>
+    <p class="exclusive-note">🔒 Secure UPI • Instant Access via DM</p>
 
   </div>
 </div>
 
-<!-- Payment Overlay -->
 <div class="overlay" id="overlay">
   <h2>Processing Payment</h2>
-  <p>Complete payment in your UPI app</p>
+  <p>Complete payment in your UPI app...</p>
 </div>
-
-<!-- Scripts (IMPORTANT: load JS at the end) -->
-<script src="script.js"></script>
-<script>
-  // Call guard AFTER script.js is loaded
-  if (typeof guard === "function") {
-    guard();
-  }
-</script>
 
 </body>
 </html>
