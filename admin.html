@@ -12,6 +12,17 @@
 document.getElementById("out").textContent =
 JSON.stringify(JSON.parse(localStorage.getItem("users"))||[],null,2);
 </script>
-
+  <h3>Preview Activity</h3>
+<pre>
+<script>
+document.write(
+  JSON.stringify(
+    JSON.parse(localStorage.getItem("previewLogs")) || [],
+    null,
+    2
+  )
+);
+</script>
+</pre>
 </body>
 </html>
