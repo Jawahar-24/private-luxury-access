@@ -1,21 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Admin</title>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="card">
-  <h1>Admin Dashboard</h1>
-  <pre style="text-align:left;font-size:13px;">
-USER:
-<script>document.write(localStorage.getItem("userDetails"))</script>
+  <div class="card">
+    <h1>📊 Admin Dashboard</h1>
 
-PAYMENT:
-<script>document.write(localStorage.getItem("paymentData"))</script>
-  </pre>
-</div>
+    <pre id="output" class="admin-output">
+Loading data...
+    </pre>
+  </div>
+
+  <script>
+    // Fetch data from localStorage
+    const userDetails = localStorage.getItem("userDetails");
+    const paymentData = localStorage.getItem("paymentData");
+
+    let outputText = "";
+
+    // USER DETAILS
+    outputText += "USER DETAILS:\n";
+    outputText += userDetails ? userDetails : "No user details found.";
+    outputText += "\n\n";
+
+    // PAYMENT DETAILS
+    outputText += "PAYMENT DETAILS:\n";
+    outputText += paymentData ? paymentData : "No payment data found.";
+
+    // Display in UI
+    document.getElementById("output").textContent = outputText;
+  </script>
 
 </body>
 </html>
