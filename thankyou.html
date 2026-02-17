@@ -1,12 +1,30 @@
-<script>
-  const data = JSON.parse(localStorage.getItem("paymentData"));
-  const msg = encodeURIComponent(
-    `Hi, I have paid ₹${data.amount} for ${data.plan} access.\nInstagram: ${data.instagram}\nPlease share my access link.`
-  );
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirmation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  document.write(`
-    <a href="https://wa.me/919620151434?text=${msg}">
-      <button class="btn btn-dark">📲 WhatsApp</button>
-    </a>
-  `);
-</script>
+<div class="card">
+  <h1>Payment Initiated</h1>
+
+  <script>
+    const d = JSON.parse(localStorage.getItem("paymentData"));
+    const msg = encodeURIComponent(
+      `Hi, I paid ₹${d.amount} for ${d.plan} access.\nInstagram: ${d.instagram}`
+    );
+    document.write(`
+      <a href="https://wa.me/919620151434?text=${msg}">
+        <button class="btn btn-dark">WhatsApp</button>
+      </a>
+    `);
+  </script>
+
+  <a href="https://ig.me/m/thelustframework">
+    <button class="btn btn-gold">Instagram</button>
+  </a>
+</div>
+
+</body>
+</html>
