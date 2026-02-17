@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Dashboard</title>
+  <title>Admin</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="card">
-  <h1>📊 Admin Dashboard</h1>
-  <pre id="output" style="text-align:left;font-size:13px;"></pre>
+  <h1>Admin Dashboard</h1>
+  <pre style="text-align:left;font-size:13px;">
+USER:
+<script>document.write(localStorage.getItem("userDetails"))</script>
+
+PAYMENT:
+<script>document.write(localStorage.getItem("paymentData"))</script>
+  </pre>
 </div>
-
-<script>
-  const user = localStorage.getItem("userDetails");
-  const payment = localStorage.getItem("paymentData");
-
-  document.getElementById("output").textContent =
-    "USER DETAILS:\n" + user + "\n\nPAYMENT DATA:\n" + payment;
-</script>
 
 </body>
 </html>
