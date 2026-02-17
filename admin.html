@@ -1,38 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-card { max-width: 600px; padding: 20px; text-align: left; }
+    pre { background: #111; padding: 15px; border-radius: 8px; font-size: 13px; color: #55ff55; overflow-x: auto; margin-bottom: 20px; border: 1px solid #333; }
+    h3 { color: #f7d774; margin-bottom: 10px; font-size: 18px; }
+  </style>
 </head>
 <body>
 
-<div class="card">
-  <h1>Admin Dashboard</h1>
+<div class="card admin-card">
+  <h1 style="text-align: center;">Admin Dashboard</h1>
 
   <h3>Registered Users</h3>
-  <pre id="usersOut"></pre>
+  <pre id="usersOut">No data</pre>
 
   <h3>Free Video Activity</h3>
-  <pre id="logsOut"></pre>
+  <pre id="logsOut">No data</pre>
 </div>
 
 <script>
-  // OPTIONAL: simple admin guard
+  // To view this page, set localStorage.setItem("isAdmin", "true") in browser console
   if (localStorage.getItem("isAdmin") !== "true") {
-    alert("Access denied");
+    alert("Access denied. Set isAdmin=true in localStorage.");
     window.location.href = "index.html";
+  } else {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const logs = JSON.parse(localStorage.getItem("freeVideoLogs")) || [];
+
+    document.getElementById("usersOut").textContent = JSON.stringify(users, null, 2);
+    document.getElementById("logsOut").textContent = JSON.stringify(logs, null, 2);
   }
-
-  const users =
-    JSON.parse(localStorage.getItem("users")) || [];
-  const logs =
-    JSON.parse(localStorage.getItem("freeVideoLogs")) || [];
-
-  document.getElementById("usersOut").textContent =
-    JSON.stringify(users, null, 2);
-
-  document.getElementById("logsOut").textContent =
-    JSON.stringify(logs, null, 2);
 </script>
 
 </body>
