@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+  <h1>Admin Dashboard</h1>
+  <pre id="data"></pre>
+</div>
+
+<script>
+  const data = localStorage.getItem("userDetails");
+  document.getElementById("data").textContent =
+    data ? data : "No data found";
+</script>
+
+</body>
+</html>
