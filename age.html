@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Age Verification</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-</head>
+<html>
+<head><link rel="stylesheet" href="style.css"></head>
 <body>
 
-<!-- GUARD: BLOCK DIRECT ACCESS -->
 <script>
-  if (!localStorage.getItem("userDetails")) {
-    window.location.href = "index.html";
-  }
+if(!localStorage.getItem("currentUser")) location.href="index.html";
 </script>
 
 <div class="card">
-  <h1>Age Verification</h1>
-  <p>This content is strictly for adults (18+)</p>
-
-  <button class="btn btn-gold" onclick="acceptAge()">I am 18+</button>
-  <button class="btn btn-soft" onclick="exitSite()">Under 18 / Exit</button>
+<h1>Age Verification</h1>
+<button class="btn btn-gold" onclick="acceptAge()">I am 18+</button>
+<button class="btn btn-soft" onclick="exitSite()">Under 18</button>
 </div>
 
 <script src="script.js"></script>
