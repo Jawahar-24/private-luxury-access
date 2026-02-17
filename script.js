@@ -1,34 +1,36 @@
-// AGE MEMORY
-function acceptAge() {
-  localStorage.setItem("age_ok", "yes");
-  document.getElementById("ageCard").style.display = "none";
-}
+// SAVE USER DETAILS
+function saveUserDetails() {
+  const insta = document.getElementById("instagram").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  const email  = document.getElementById("email").value.trim();
 
-// OTP DEMO
-let otpCode = null;
-
-function sendOTP() {
-  const mobile = document.getElementById("mobile").value;
-  if (mobile.length < 10) {
-    alert("Enter valid mobile number");
+  if (!insta || !mobile || !email) {
+    alert("Please fill all details");
     return;
   }
-  otpCode = Math.floor(100000 + Math.random() * 900000);
-  alert("Demo OTP: " + otpCode);
-  document.getElementById("otpBox").style.display = "block";
+
+  const user = {
+    instagram: insta,
+    mobile: mobile,
+    email: email,
+    time: new Date().toLocaleString()
+  };
+
+  localStorage.setItem("userDetails", JSON.stringify(user));
+  window.location.href = "age.html";
 }
 
-function verifyOTP() {
-  const entered = document.getElementById("otp").value;
-  if (entered == otpCode) {
-    localStorage.setItem("loggedIn", "yes");
-    alert("Login successful");
-  } else {
-    alert("Invalid OTP");
-  }
+// AGE CONFIRMATION
+function acceptAge() {
+  localStorage.setItem("age_ok", "yes");
+  window.location.href = "choice.html";
 }
 
-// NAVIGATION
+function exitSite() {
+  window.location.href = "https://google.com";
+}
+
+// NAV
 function go(page) {
   window.location.href = page;
 }
@@ -37,17 +39,8 @@ function go(page) {
 function pay(amount) {
   localStorage.setItem("paidAmount", amount);
   const upi = `upi://pay?pa=9620151434@upi&pn=Jawahar&am=${amount}&cu=INR`;
-  document.getElementById("overlay").style.display = "flex";
   window.location.href = upi;
   setTimeout(() => {
     window.location.href = "thankyou.html";
   }, 5000);
 }
-
-// AUTO AGE CHECK
-window.onload = () => {
-  if (localStorage.getItem("age_ok") === "yes") {
-    const age = document.getElementById("ageCard");
-    if (age) age.style.display = "none";
-  }
-};
