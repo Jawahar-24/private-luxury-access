@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head><link rel="stylesheet" href="style.css"></head>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <div class="card">
-<h1>Admin Dashboard</h1>
-<pre id="out"></pre>
+  <h1>Admin Dashboard</h1>
+
+  <h3>Registered Users</h3>
+  <pre id="usersOut"></pre>
+
+  <h3>Free Video Activity</h3>
+  <pre id="logsOut"></pre>
 </div>
 
 <script>
-document.getElementById("out").textContent =
-JSON.stringify(JSON.parse(localStorage.getItem("users"))||[],null,2);
+  // OPTIONAL: simple admin guard
+  if (localStorage.getItem("isAdmin") !== "true") {
+    alert("Access denied");
+    window.location.href = "index.html";
+  }
+
+  const users =
+    JSON.parse(localStorage.getItem("users")) || [];
+  const logs =
+    JSON.parse(localStorage.getItem("freeVideoLogs")) || [];
+
+  document.getElementById("usersOut").textContent =
+    JSON.stringify(users, null, 2);
+
+  document.getElementById("logsOut").textContent =
+    JSON.stringify(logs, null, 2);
 </script>
-  <h3>Preview Activity</h3>
-<pre>
-<script>
-document.write(
-  JSON.stringify(
-    JSON.parse(localStorage.getItem("previewLogs")) || [],
-    null,
-    2
-  )
-);
-</script>
-</pre>
+
 </body>
 </html>
