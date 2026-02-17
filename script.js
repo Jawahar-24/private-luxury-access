@@ -97,3 +97,13 @@ function guard() {
     window.location.href = "index.html";
   }
 }
+.admin-output {
+  text-align: left;
+  font-size: 13px;
+  background: #111;
+  color: #0f0;
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
