@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" href="style.css"></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Verification</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script>
+    if(!localStorage.getItem("currentUser")) location.href="index.html";
+  </script>
+</head>
 <body>
 
-<script>
-if(!localStorage.getItem("currentUser")) location.href="index.html";
-</script>
-
 <div class="card">
-<h1>Age Verification</h1>
-<button class="btn btn-gold" onclick="acceptAge()">I am 18+</button>
-<button class="btn btn-soft" onclick="exitSite()">Under 18</button>
+  <h1>Age Verification</h1>
+  <p>You must be 18 years or older to enter.</p>
+  <button class="btn btn-gold" onclick="acceptAge()">I am 18+</button>
+  <button class="btn btn-soft" onclick="exitSite()">Under 18</button>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
