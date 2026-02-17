@@ -1,7 +1,13 @@
 /* ================= GUARD ================= */
-function guard() {
-  if (!localStorage.getItem("currentUser")) {
-    window.location.href = "index.html";
+function guard(requireAge = false) {
+  const user = localStorage.getItem("currentUser");
+  if (!user) {
+    window.location.replace("index.html");
+    return;
+  }
+
+  if (requireAge && localStorage.getItem("age_ok") !== "yes") {
+    window.location.replace("age.html");
   }
 }
 
@@ -9,10 +15,14 @@ function guard() {
 function showWarning(msg) {
   const box = document.getElementById("warningBox");
   if (!box) return;
+
   box.textContent = msg;
   box.style.display = "block";
-  clearTimeout(window._w);
-  window._w = setTimeout(() => box.style.display = "none", 2500);
+
+  clearTimeout(showWarning._t);
+  showWarning._t = setTimeout(() => {
+    box.style.display = "none";
+  }, 2500);
 }
 
 /* ================= SAVE USER ================= */
@@ -29,28 +39,28 @@ function saveUserDetails() {
     return;
   }
 
-  if (!/^@?[a-zA-Z0-9._]{3,30}$/.test(insta.value)) {
+  if (!/^@?[a-zA-Z0-9._]{3,30}$/.test(insta.value.trim())) {
     showWarning("Invalid Instagram ID");
     insta.classList.add("input-error");
     return;
   }
 
-  if (!/^[6-9]\d{9}$/.test(mobile.value)) {
+  if (!/^[6-9]\d{9}$/.test(mobile.value.trim())) {
     showWarning("Invalid mobile number");
     mobile.classList.add("input-error");
     return;
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
     showWarning("Invalid email");
     email.classList.add("input-error");
     return;
   }
 
   const user = {
-    instagram: insta.value.replace("@", ""),
-    mobile: mobile.value,
-    email: email.value,
+    instagram: insta.value.replace("@", "").trim(),
+    mobile: mobile.value.trim(),
+    email: email.value.trim(),
     time: new Date().toISOString()
   };
 
@@ -60,34 +70,50 @@ function saveUserDetails() {
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.setItem("currentUser", JSON.stringify(user));
 
-  window.location.href = "age.html";
+  window.location.replace("age.html");
 }
 
 /* ================= AGE ================= */
 function acceptAge() {
   localStorage.setItem("age_ok", "yes");
-  window.location.href = "choice.html";
+  window.location.replace("choice.html");
 }
 
 function exitSite() {
-  window.location.href = "https://google.com";
+  window.location.href = "https://www.google.com";
 }
 
 /* ================= NAV ================= */
-function go(p) {
-  window.location.href = p;
+function go(page) {
+  window.location.href = page;
 }
 
 /* ================= PAYMENT ================= */
 function pay(amount, plan) {
   const user = JSON.parse(localStorage.getItem("currentUser"));
-  const payment = { ...user, amount, plan, paidAt: new Date().toISOString() };
+  if (!user) return;
+
+  const payment = {
+    ...user,
+    amount,
+    plan,
+    paidAt: new Date().toISOString()
+  };
+
   localStorage.setItem("paymentData", JSON.stringify(payment));
 
-  document.getElementById("overlay").style.display = "flex";
-  window.location.href = `upi://pay?pa=9620151434@upi&am=${amount}&cu=INR`;
+  const overlay = document.getElementById("overlay");
+  if (overlay) overlay.style.display = "flex";
 
-  setTimeout(() => window.location.href = "thankyou.html", 5000);
+  const upiUrl = `upi://pay?pa=9620151434@upi&pn=VideoAccess&am=${amount}&cu=INR`;
+
+  // IMPORTANT: redirect first, then fallback
+  window.location.href = upiUrl;
+
+  // User manually returns → then we redirect
+  setTimeout(() => {
+    window.location.replace("thankyou.html");
+  }, 8000);
 }
 
 /* ================= FREE VIDEO CLICK TRACKING ================= */
@@ -107,3 +133,35 @@ function openFreeVideo(videoName, videoUrl) {
 
   window.open(videoUrl, "_blank", "noopener,noreferrer");
 }
+
+/* ================= SOCIAL PROOF ================= */
+(function fakeChosenCounter() {
+  const el = document.getElementById("chosenCount");
+  if (!el) return;
+
+  let count = 438 + Math.floor(Math.random() * 6);
+  el.textContent = count;
+
+  setInterval(() => {
+    if (Math.random() > 0.7) {
+      count++;
+      el.textContent = count;
+    }
+  }, 6000);
+})();
+
+/* ================= SCARCITY TIMER ================= */
+(function scarcityTimer() {
+  const el = document.getElementById("slotsLeft");
+  if (!el) return;
+
+  let slots = 5 + Math.floor(Math.random() * 4);
+  el.textContent = slots;
+
+  setInterval(() => {
+    if (slots > 2 && Math.random() > 0.65) {
+      slots--;
+      el.textContent = slots;
+    }
+  }, 12000);
+})();
