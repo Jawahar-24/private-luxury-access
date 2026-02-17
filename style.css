@@ -1,7 +1,6 @@
 :root {
   --gold: linear-gradient(135deg, #f7d774, #c9a227);
   --glass: rgba(255,255,255,0.08);
-  --dark: #0b0b0b;
 }
 
 * {
@@ -27,26 +26,20 @@ body {
   padding: 32px;
   border-radius: 22px;
   text-align: center;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.6);
+  box-shadow: 0 30px 90px rgba(0,0,0,.6);
   animation: fadeUp .8s ease;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
 h1 {
   margin-bottom: 10px;
-  font-weight: 600;
   background: var(--gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-p {
-  font-size: 15px;
-  opacity: .85;
 }
 
 input {
@@ -64,48 +57,49 @@ input {
   margin-top: 16px;
   border-radius: 16px;
   border: none;
-  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0,0,0,.4);
-}
-
-.btn-gold { background: var(--gold); color: #000; }
-.btn-dark { background: #000; color: #fff; }
-.btn-soft { background: rgba(255,255,255,.15); color: #fff; }
+.btn-gold { background: var(--gold); color:#000; }
+.btn-dark { background:#000; color:#fff; }
+.btn-soft { background:rgba(255,255,255,.15); color:#fff; }
 
 .row {
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
+  display:flex;
+  gap:12px;
+  margin-top:16px;
 }
 
 .price {
-  background: rgba(255,255,255,.1);
-  padding: 18px;
-  border-radius: 16px;
-  margin-top: 16px;
-  line-height: 1.7;
+  background:rgba(255,255,255,.1);
+  padding:18px;
+  border-radius:16px;
+  margin-top:16px;
 }
 
+/* 🔴 INPUT ERROR ANIMATION */
+.input-error {
+  border:2px solid #ff4d4d;
+  box-shadow:0 0 12px rgba(255,77,77,.8);
+  animation:shake .35s;
+}
+
+@keyframes shake {
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-4px)}
+  50%{transform:translateX(4px)}
+  75%{transform:translateX(-4px)}
+}
+
+/* OVERLAY */
 .overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.9);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  z-index: 99;
-}
-
-@media (max-width: 480px) {
-  .card { margin: 20px; padding: 26px; }
-  h1 { font-size: 20px; }
-  .btn { padding: 18px; font-size: 17px; }
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index:99;
 }
