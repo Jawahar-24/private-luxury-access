@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Private Access</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Access</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
 <body>
 
 <div class="card">
-<h1>Welcome</h1>
+  <h1>Welcome</h1>
 
-<div id="warningBox" style="display:none;background:rgba(255,0,0,.2);padding:10px;border-radius:10px;margin-bottom:12px;"></div>
+  <div id="warningBox" style="display:none;background:rgba(255,77,77,0.15);color:#ff4d4d;padding:12px;border-radius:12px;margin-bottom:16px;font-size:14px;border:1px solid rgba(255,77,77,0.3);"></div>
 
-<input id="instagram" placeholder="Instagram Username">
-<input id="mobile" placeholder="Mobile Number">
-<input id="email" placeholder="Email Address">
+  <input id="instagram" placeholder="Instagram Username" type="text">
+  <input id="mobile" placeholder="Mobile Number" type="tel" maxlength="10">
+  <input id="email" placeholder="Email Address" type="email">
 
-<button class="btn btn-gold" type="button" onclick="saveUserDetails()">Continue</button>
+  <button class="btn btn-gold" type="button" onclick="saveUserDetails()">Continue</button>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
