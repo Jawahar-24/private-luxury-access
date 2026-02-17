@@ -1,25 +1,74 @@
 <!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" href="style.css"></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exclusive Access</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <script>guard()</script>
 
-<div class="card">
-<h1>Exclusive Access</h1>
-<div class="price">
-₹49 – Single<br>
-₹99 – 3 Videos<br>
-₹199 – 10 Videos<br><b>₹499 – Lifetime (1000+)</b>
+<div class="exclusive-wrapper">
+  <div class="exclusive-card">
+
+    <h1 class="exclusive-title">Exclusive Access</h1>
+    <p class="exclusive-subtitle">
+      Private • Premium • Members Only
+    </p>
+
+    <!-- PLANS -->
+    <div class="plans">
+
+      <div class="plan">
+        <span class="plan-tag">Starter</span>
+        <h2>₹49</h2>
+        <p>Single Video</p>
+        <button class="plan-btn dark" onclick="pay(49,'single')">
+          Unlock ₹49
+        </button>
+      </div>
+
+      <div class="plan">
+        <span class="plan-tag">Popular</span>
+        <h2>₹99</h2>
+        <p>3 Videos</p>
+        <button class="plan-btn dark" onclick="pay(99,'three')">
+          Unlock ₹99
+        </button>
+      </div>
+
+      <div class="plan highlight">
+        <span class="plan-tag gold">Best Value</span>
+        <h2>₹199</h2>
+        <p>10 Videos</p>
+        <button class="plan-btn gold" onclick="pay(199,'ten')">
+          Unlock 10 Videos
+        </button>
+      </div>
+
+      <div class="plan lifetime">
+        <span class="plan-tag crown">👑 Lifetime</span>
+        <h2>₹499</h2>
+        <p>1000+ Videos<br><small>One-time payment</small></p>
+        <button class="plan-btn premium" onclick="pay(499,'lifetime')">
+          Best • Lifetime Access
+        </button>
+      </div>
+
+    </div>
+
+    <p class="exclusive-note">
+      🔒 Secure UPI • Instant Access via DM
+    </p>
+
+  </div>
 </div>
 
-<button class="btn btn-dark" onclick="pay(49,'single')">₹49</button>
-<button class="btn btn-dark" onclick="pay(99,'three')">₹99</button>
-<button class="btn btn-soft" onclick="pay(199,'ten')">₹199</button>
-<button class="btn btn-gold" onclick="pay(499,'lifetime')">BEST ₹499</button>
+<div class="overlay" id="overlay">
+  <h2>Processing Payment</h2>
+  <p>Complete payment in your UPI app</p>
 </div>
-
-<div class="overlay" id="overlay"><h2>Processing Payment</h2></div>
 
 <script src="script.js"></script>
 </body>
