@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Free Preview</title>
+  <title>Free Videos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,30 +11,28 @@
 <script>guard()</script>
 
 <div class="card">
-  <h1>Free Previews</h1>
-  <p>Enjoy a sample before unlocking full access</p>
+  <h1>Free Videos</h1>
+  <p>Tap a video to watch in a new tab</p>
 
-  <!-- PREVIEW 1 -->
-  <h3>Preview 1</h3>
-  <iframe
-    src="https://mega.nz/embed/7oxiwKKC#Sj7t-17Eyw3ge8A-FNSfNzPnBwAbpofcdyBW2vCd0ok"
-    width="100%"
-    height="240"
-    allow="autoplay; encrypted-media"
-    style="border:none;"
-    onclick="trackPreview('Free Video 1')">
-  </iframe>
+  <!-- FREE VIDEO 1 -->
+  <button
+    class="btn btn-dark"
+    onclick="openFreeVideo(
+      'Free Video 1',
+      'https://mega.nz/file/7oxiwKKC#Sj7t-17Eyw3ge8A-FNSfNzPnBwAbpofcdyBW2vCd0ok'
+    )">
+    ▶ Watch Free Video 1
+  </button>
 
-  <!-- PREVIEW 2 -->
-  <h3 style="margin-top:20px;">Preview 2</h3>
-  <iframe
-    src="https://mega.nz/embed/C8YT2boa#ziaShvKGVEd5Ml_WBK8taBstKQdW98SLrqMgRxN-h7w"
-    width="100%"
-    height="240"
-    allow="autoplay; encrypted-media"
-    style="border:none;"
-    onclick="trackPreview('Free Video 2')">
-  </iframe>
+  <!-- FREE VIDEO 2 -->
+  <button
+    class="btn btn-dark"
+    onclick="openFreeVideo(
+      'Free Video 2',
+      'https://mega.nz/file/C8YT2boa#ziaShvKGVEd5Ml_WBK8taBstKQdW98SLrqMgRxN-h7w'
+    )">
+    ▶ Watch Free Video 2
+  </button>
 
   <!-- CTA -->
   <div class="row" style="margin-top:20px;">
