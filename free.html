@@ -2,49 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Videos</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script>guard(true);</script>
 </head>
 <body>
-
-<!-- BLOCK DIRECT ACCESS -->
-<script>guard()</script>
 
 <div class="card">
   <h1>Free Videos</h1>
   <p>Tap a video to watch in a new tab</p>
 
-  <!-- FREE VIDEO 1 -->
-  <button
-    class="btn btn-dark"
-    onclick="openFreeVideo(
-      'Free Video 1',
-      'https://mega.nz/file/7oxiwKKC#Sj7t-17Eyw3ge8A-FNSfNzPnBwAbpofcdyBW2vCd0ok'
-    )">
+  <button class="btn btn-dark" onclick="openFreeVideo('Free Video 1', 'https://mega.nz/file/7oxiwKKC#Sj7t-17Eyw3ge8A-FNSfNzPnBwAbpofcdyBW2vCd0ok')">
     ▶ Watch Free Video 1
   </button>
 
-  <!-- FREE VIDEO 2 -->
-  <button
-    class="btn btn-dark"
-    onclick="openFreeVideo(
-      'Free Video 2',
-      'https://mega.nz/file/C8YT2boa#ziaShvKGVEd5Ml_WBK8taBstKQdW98SLrqMgRxN-h7w'
-    )">
+  <button class="btn btn-dark" onclick="openFreeVideo('Free Video 2', 'https://mega.nz/file/C8YT2boa#ziaShvKGVEd5Ml_WBK8taBstKQdW98SLrqMgRxN-h7w')">
     ▶ Watch Free Video 2
   </button>
 
-  <!-- CTA -->
-  <div class="row" style="margin-top:20px;">
-    <button class="btn btn-gold" onclick="go('exclusive.html')">
-      🔓 Unlock Full Access
-    </button>
-    <button class="btn btn-soft" onclick="history.back()">
-      ⬅ Back
-    </button>
+  <div class="row" style="margin-top:24px;">
+    <button class="btn btn-gold" onclick="go('exclusive.html')">🔓 Unlock Full Access</button>
   </div>
+  <button class="btn btn-soft" style="margin-top:10px;" onclick="history.back()">⬅ Back</button>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
