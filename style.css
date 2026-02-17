@@ -1,8 +1,28 @@
 /* ======================================================
-   RESPONSIVE EXCLUSIVE PAGE — MOBILE → DESKTOP PERFECT
+   GLOBAL BACKGROUND — CINEMATIC LUXURY
    ====================================================== */
 
-/* Wrapper keeps center focus */
+body {
+  background:
+    radial-gradient(circle at top, rgba(247,215,116,0.05), transparent 45%),
+    radial-gradient(circle at bottom, rgba(0,0,0,0.95), #000 70%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.88) 78%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ======================================================
+   WRAPPER
+   ====================================================== */
+
 .exclusive-wrapper {
   min-height: 100vh;
   display: flex;
@@ -11,10 +31,13 @@
   padding: 20px;
 }
 
-/* Base card (mobile-first) */
+/* ======================================================
+   EXCLUSIVE CARD (MOBILE FIRST)
+   ====================================================== */
+
 .exclusive-card {
   width: 100%;
-  max-width: 380px; /* iPhone perfect */
+  max-width: 380px;
   background: linear-gradient(180deg, #181818, #0c0c0c);
   border-radius: 28px;
   padding: 32px 22px;
@@ -22,7 +45,10 @@
   text-align: center;
 }
 
-/* Title */
+/* ======================================================
+   HEADINGS
+   ====================================================== */
+
 .exclusive-title {
   font-size: 22px;
   font-weight: 600;
@@ -36,20 +62,22 @@
   margin-bottom: 22px;
 }
 
-/* Plans */
+/* ======================================================
+   PLANS LAYOUT
+   ====================================================== */
+
 .plans {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-/* Individual plan card */
 .plan {
   background: #111;
   border-radius: 20px;
   padding: 16px;
   position: relative;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .plan:hover {
@@ -58,16 +86,19 @@
 }
 
 .plan h2 {
-  margin: 6px 0;
   font-size: 22px;
+  margin: 6px 0;
 }
 
 .plan p {
   font-size: 13px;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-/* Tags */
+/* ======================================================
+   PLAN TAGS
+   ====================================================== */
+
 .plan-tag {
   position: absolute;
   top: -10px;
@@ -79,27 +110,29 @@
   font-size: 11px;
 }
 
-.plan-tag.gold {
-  background: linear-gradient(135deg,#f7d774,#c9a227);
-  color: #000;
-}
-
+.plan-tag.gold,
 .plan-tag.crown {
-  background: linear-gradient(135deg,#ffdf7e,#b8922b);
+  background: linear-gradient(135deg, #f7d774, #c9a227);
   color: #000;
 }
 
-/* Highlight styles */
+/* ======================================================
+   PLAN HIGHLIGHTS
+   ====================================================== */
+
 .highlight {
   border: 1px solid #f7d77455;
 }
 
 .lifetime {
-  background: radial-gradient(circle at top, #1f1f1f, #0b0b0b);
   border: 1px solid #f7d774;
+  background: radial-gradient(circle at top, #1f1f1f, #0b0b0b);
 }
 
-/* Buttons */
+/* ======================================================
+   BUTTONS
+   ====================================================== */
+
 .plan-btn {
   width: 100%;
   margin-top: 12px;
@@ -116,31 +149,41 @@
   color: #fff;
 }
 
-.plan-btn.gold {
-  background: linear-gradient(135deg,#f7d774,#c9a227);
+.plan-btn.gold,
+.plan-btn.premium {
+  background: linear-gradient(135deg, #f7d774, #c9a227);
   color: #000;
 }
 
 .plan-btn.premium {
-  background: linear-gradient(135deg,#ffe38a,#b48b1e);
-  color: #000;
   font-size: 15px;
 }
 
-/* Footer note */
+/* ======================================================
+   SOCIAL PROOF & FOOTER
+   ====================================================== */
+
+.choice-counter,
+.scarcity-text {
+  font-size: 12px;
+  margin-top: 6px;
+  color: #f7d774;
+  opacity: 0.85;
+}
+
 .exclusive-note {
-  margin-top: 16px;
+  margin-top: 18px;
   font-size: 12px;
   opacity: 0.7;
 }
 
 /* ======================================================
-   DESKTOP OPTIMIZATION (THIS FIXES YOUR ISSUE)
+   RESPONSIVE — DESKTOP & LARGE SCREENS
    ====================================================== */
 
 @media (min-width: 768px) {
   .exclusive-card {
-    max-width: 460px;   /* wider on laptop */
+    max-width: 460px;
     padding: 36px 28px;
   }
 
@@ -153,9 +196,16 @@
   }
 }
 
-/* Large screens (very wide monitors) */
+@media (min-width: 1024px) {
+  .plan.lifetime {
+    box-shadow:
+      0 0 90px rgba(247,215,116,0.18),
+      0 0 160px rgba(247,215,116,0.08);
+  }
+}
+
 @media (min-width: 1200px) {
   .exclusive-card {
-    max-width: 520px;  /* avoids tall skinny look */
+    max-width: 520px;
   }
 }
