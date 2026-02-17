@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Exclusive Access</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<head><link rel="stylesheet" href="style.css"></head>
 <body>
 
 <script>guard()</script>
 
 <div class="card">
-  <h1>⭐ Exclusive Access</h1>
-
-  <div class="price">
-    🎥 ₹49 – Single Video<br>
-    🎞️ ₹99 – 3 Videos<br>
-    🔥 ₹199 – 10 Videos<br><br>
-    <b>👑 ₹499 – Lifetime · 1000+ Videos</b>
-  </div>
-
-  <button class="btn btn-dark" onclick="pay(49,'single')">Pay ₹49</button>
-  <button class="btn btn-dark" onclick="pay(99,'three')">Pay ₹99</button>
-  <button class="btn btn-soft" onclick="pay(199,'ten')">Pay ₹199</button>
-  <button class="btn btn-gold" onclick="pay(499,'lifetime')">Best • ₹499</button>
+<h1>Exclusive Access</h1>
+<div class="price">
+₹49 – Single<br>
+₹99 – 3 Videos<br>
+₹199 – 10 Videos<br><b>₹499 – Lifetime (1000+)</b>
 </div>
 
-<div class="overlay" id="overlay">
-  <h2>Processing Payment</h2>
+<button class="btn btn-dark" onclick="pay(49,'single')">₹49</button>
+<button class="btn btn-dark" onclick="pay(99,'three')">₹99</button>
+<button class="btn btn-soft" onclick="pay(199,'ten')">₹199</button>
+<button class="btn btn-gold" onclick="pay(499,'lifetime')">BEST ₹499</button>
 </div>
+
+<div class="overlay" id="overlay"><h2>Processing Payment</h2></div>
 
 <script src="script.js"></script>
 </body>
