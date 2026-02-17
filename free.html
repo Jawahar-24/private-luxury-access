@@ -1,43 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Free Preview</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- BLOCK DIRECT ACCESS -->
 <script>guard()</script>
 
 <div class="card">
-  <h1>Free Videos</h1>
+  <h1>Free Previews</h1>
   <p>Enjoy a sample before unlocking full access</p>
 
-  <!-- Embedded Mega Previews -->
-  <h2>Preview 1</h2>
-  <iframe 
+  <!-- PREVIEW 1 -->
+  <h3>Preview 1</h3>
+  <iframe
     src="https://mega.nz/embed/7oxiwKKC#Sj7t-17Eyw3ge8A-FNSfNzPnBwAbpofcdyBW2vCd0ok"
-    width="100%" height="240" allow="autoplay; encrypted-media" style="border:none;">
+    width="100%"
+    height="240"
+    allow="autoplay; encrypted-media"
+    style="border:none;"
+    onclick="trackPreview('Free Video 1')">
   </iframe>
 
-  <h2>Preview 2</h2>
-  <iframe 
+  <!-- PREVIEW 2 -->
+  <h3 style="margin-top:20px;">Preview 2</h3>
+  <iframe
     src="https://mega.nz/embed/C8YT2boa#ziaShvKGVEd5Ml_WBK8taBstKQdW98SLrqMgRxN-h7w"
-    width="100%" height="240" allow="autoplay; encrypted-media" style="border:none;">
+    width="100%"
+    height="240"
+    allow="autoplay; encrypted-media"
+    style="border:none;"
+    onclick="trackPreview('Free Video 2')">
   </iframe>
 
-  <!-- Download Buttons (optional) -->
-  <a href="https://mega.nz/file/7oxiwKKC#Sj7t-17Eyw3ge8A-FNSfNzPnBwAbpofcdyBW2vCd0ok" target="_blank">
-    <button class="btn btn-gold">Download Free Video 1</button>
-  </a>
-
-  <a href="https://mega.nz/file/C8YT2boa#ziaShvKGVEd5Ml_WBK8taBstKQdW98SLrqMgRxN-h7w" target="_blank">
-    <button class="btn btn-gold">Download Free Video 2</button>
-  </a>
-
-  <!-- Call to unlock full content -->
-  <div class="row">
-    <button class="btn btn-gold" onclick="go('exclusive.html')">Unlock Full Access</button>
-    <button class="btn btn-soft" onclick="history.back()">Back</button>
+  <!-- CTA -->
+  <div class="row" style="margin-top:20px;">
+    <button class="btn btn-gold" onclick="go('exclusive.html')">
+      🔓 Unlock Full Access
+    </button>
+    <button class="btn btn-soft" onclick="history.back()">
+      ⬅ Back
+    </button>
   </div>
 </div>
 
