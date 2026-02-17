@@ -84,3 +84,21 @@ function pay(amount,plan){
 
   setTimeout(()=>window.location.href="thankyou.html",5000);
 }
+/* ================= PREVIEW TRACKING ================= */
+
+function trackPreview(previewName) {
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  if (!user) return;
+
+  const activity = {
+    instagram: user.instagram,
+    preview: previewName,
+    time: new Date().toISOString()
+  };
+
+  const logs = JSON.parse(localStorage.getItem("previewLogs")) || [];
+  logs.push(activity);
+  localStorage.setItem("previewLogs", JSON.stringify(logs));
+
+  console.log("Preview tracked:", activity);
+}
