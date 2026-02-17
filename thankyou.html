@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Confirmation</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<head><link rel="stylesheet" href="style.css"></head>
 <body>
 
 <div class="card">
-  <h1>Payment Initiated</h1>
+<h1>Payment Initiated</h1>
 
-  <script>
-    const d = JSON.parse(localStorage.getItem("paymentData"));
-    const msg = encodeURIComponent(
-      `Hi, I paid ₹${d.amount} for ${d.plan} access.\nInstagram: ${d.instagram}`
-    );
-    document.write(`
-      <a href="https://wa.me/919620151434?text=${msg}">
-        <button class="btn btn-dark">WhatsApp</button>
-      </a>
-    `);
-  </script>
+<script>
+const p = JSON.parse(localStorage.getItem("paymentData"));
+const msg = encodeURIComponent(`Paid ₹${p.amount} for ${p.plan}\nInstagram: ${p.instagram}`);
+document.write(`<a href="https://wa.me/919620151434?text=${msg}"><button class="btn btn-dark">WhatsApp</button></a>`);
+</script>
 
-  <a href="https://ig.me/m/thelustframework">
-    <button class="btn btn-gold">Instagram</button>
-  </a>
+<a href="https://ig.me/m/thelustframework">
+<button class="btn btn-gold">Instagram</button>
+</a>
 </div>
 
 </body>
