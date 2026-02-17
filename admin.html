@@ -7,14 +7,16 @@
 <body>
 
 <div class="card">
-  <h1>Admin Dashboard</h1>
-  <pre id="data"></pre>
+  <h1>📊 Admin Dashboard</h1>
+  <pre id="output" style="text-align:left;font-size:13px;"></pre>
 </div>
 
 <script>
-  const data = localStorage.getItem("userDetails");
-  document.getElementById("data").textContent =
-    data ? data : "No data found";
+  const user = localStorage.getItem("userDetails");
+  const payment = localStorage.getItem("paymentData");
+
+  document.getElementById("output").textContent =
+    "USER DETAILS:\n" + user + "\n\nPAYMENT DATA:\n" + payment;
 </script>
 
 </body>
