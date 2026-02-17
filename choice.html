@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" href="style.css"></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Access</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script>guard();</script>
+</head>
 <body>
 
-<script>guard()</script>
-
 <div class="card">
-<h1>Choose Access</h1>
-<div class="row">
-<button class="btn btn-soft" onclick="go('free.html')">Free</button>
-<button class="btn btn-gold" onclick="go('exclusive.html')">Exclusive</button>
-</div>
+  <h1>Choose Access</h1>
+  <p>Select your tier to continue.</p>
+  <div class="row">
+    <button class="btn btn-soft" onclick="go('free.html')">Free</button>
+    <button class="btn btn-gold" onclick="go('exclusive.html')">Exclusive</button>
+  </div>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
