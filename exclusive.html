@@ -6,44 +6,26 @@
 </head>
 <body>
 
+<script>guard()</script>
+
 <div class="card">
   <h1>⭐ Exclusive Access</h1>
-  <p style="opacity:0.85">Unlock premium private content</p>
 
   <div class="price">
     🎥 ₹49 – Single Video<br>
     🎞️ ₹99 – 3 Videos<br>
     🔥 ₹199 – 10 Videos<br><br>
-    <b style="color:#f7d774;font-size:16px;">
-      👑 ₹499 – Full Folder<br>
-      Lifetime Access · 1000+ Videos
-    </b>
+    <b>👑 ₹499 – Lifetime · 1000+ Videos</b>
   </div>
 
-  <button class="btn btn-soft" onclick="pay(49,'single')">
-    🎥 Pay ₹49
-  </button>
-
-  <button class="btn btn-soft" onclick="pay(99,'three')">
-    🎞️ Pay ₹99
-  </button>
-
-  <button class="btn btn-gold" onclick="pay(199,'ten')">
-    🔥 Pay ₹199
-  </button>
-
-  <button class="btn btn-dark" onclick="pay(499,'lifetime')">
-    👑 Best Value • ₹499
-  </button>
-
-  <p style="font-size:13px;opacity:0.7;margin-top:10px;">
-    🔒 Secure • Mobile UPI • Instant confirmation
-  </p>
+  <button class="btn btn-soft" onclick="pay(49,'single')">Pay ₹49</button>
+  <button class="btn btn-soft" onclick="pay(99,'three')">Pay ₹99</button>
+  <button class="btn btn-gold" onclick="pay(199,'ten')">Pay ₹199</button>
+  <button class="btn btn-dark" onclick="pay(499,'lifetime')">Best • ₹499</button>
 </div>
 
 <div class="overlay" id="overlay">
   <h2>Processing Payment</h2>
-  <p>Complete payment in your UPI app</p>
 </div>
 
 <script src="script.js"></script>
