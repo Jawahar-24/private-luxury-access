@@ -1,109 +1,67 @@
-/* ================= USER DETAILS ================= */
+/* ===================================================
+   USER DETAILS VALIDATION & FLOW CONTROL
+   =================================================== */
 
 function saveUserDetails() {
   const instagram = document.getElementById("instagram").value.trim();
   const mobile    = document.getElementById("mobile").value.trim();
   const email     = document.getElementById("email").value.trim();
 
-  if (!instagram || !mobile || !email) {
-    showWarning("All details are required.");
-    return;
+  // HARD STOP IF EMPTY
+  if (instagram === "" || mobile === "" || email === "") {
+    showWarning("Please fill all details to continue.");
+    return false;
   }
 
-  if (!/^@?[a-zA-Z0-9._]{3,30}$/.test(instagram)) {
-    showWarning("Invalid Instagram username.");
-    return;
+  // INSTAGRAM VALIDATION
+  const instaRegex = /^@?[a-zA-Z0-9._]{3,30}$/;
+  if (!instaRegex.test(instagram)) {
+    showWarning("Please enter a valid Instagram username.");
+    return false;
   }
 
-  if (!/^[6-9]\d{9}$/.test(mobile)) {
-    showWarning("Invalid mobile number.");
-    return;
+  // MOBILE VALIDATION (India)
+  const mobileRegex = /^[6-9]\d{9}$/;
+  if (!mobileRegex.test(mobile)) {
+    showWarning("Please enter a valid 10-digit mobile number.");
+    return false;
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-    showWarning("Invalid email address.");
-    return;
+  // EMAIL VALIDATION
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if (!emailRegex.test(email)) {
+    showWarning("Please enter a valid email address.");
+    return false;
   }
 
-  const user = {
-    instagram: instagram.replace("@",""),
-    mobile,
-    email,
+  // SAVE DATA
+  const userData = {
+    instagram: instagram.replace("@", ""),
+    mobile: mobile,
+    email: email,
     createdAt: new Date().toISOString()
   };
 
-  localStorage.setItem("userDetails", JSON.stringify(user));
+  localStorage.setItem("userDetails", JSON.stringify(userData));
+
+  // ONLY NOW REDIRECT
   window.location.href = "age.html";
+  return true;
 }
 
-/* ================= AGE ================= */
-
-function acceptAge() {
-  localStorage.setItem("age_ok", "yes");
-  window.location.href = "choice.html";
-}
-
-function exitSite() {
-  window.location.href = "https://google.com";
-}
-
-/* ================= NAV ================= */
-
-function go(page) {
-  window.location.href = page;
-}
-
-/* ================= PAYMENT ================= */
-
-function pay(amount, plan) {
-  const user = JSON.parse(localStorage.getItem("userDetails"));
-
-  const paymentData = {
-    ...user,
-    amount,
-    plan,
-    time: new Date().toLocaleString()
-  };
-
-  localStorage.setItem("paymentData", JSON.stringify(paymentData));
-
-  const upi = `upi://pay?pa=9620151434@upi&pn=Jawahar&am=${amount}&cu=INR`;
-
-  document.getElementById("overlay").style.display = "flex";
-  window.location.href = upi;
-
-  setTimeout(() => {
-    window.location.href = "thankyou.html";
-  }, 5000);
-}
-
-/* ================= WARNING ================= */
+/* ===================================================
+   WARNING UI
+   =================================================== */
 
 function showWarning(message) {
   const box = document.getElementById("warningBox");
-  box.textContent = message;
+  if (!box) return;
+
+  box.innerText = message;
   box.style.display = "block";
 
-  clearTimeout(window._warn);
-  window._warn = setTimeout(() => {
+  clearTimeout(window._warnTimer);
+  window._warnTimer = setTimeout(() => {
     box.style.display = "none";
   }, 2500);
-}
-
-/* ================= GUARD ================= */
-
-function guard() {
-  if (!localStorage.getItem("userDetails")) {
-    window.location.href = "index.html";
-  }
-}
-.admin-output {
-  text-align: left;
-  font-size: 13px;
-  background: #111;
-  color: #0f0;
-  padding: 15px;
-  border-radius: 6px;
-  overflow-x: auto;
-  white-space: pre-wrap;
 }
