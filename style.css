@@ -1,173 +1,77 @@
-  :root {
-  --gold: linear-gradient(135deg, #f7d774, #c9a227);
-  --glass: rgba(255,255,255,0.08);
-}
+/* ======================================================
+   RESPONSIVE EXCLUSIVE PAGE — MOBILE → DESKTOP PERFECT
+   ====================================================== */
 
-* {
-  box-sizing: border-box;
-  font-family: "Segoe UI", system-ui, sans-serif;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #1b1b1b, #000);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-}
-
-.card {
-  width: 100%;
-  max-width: 420px;
-  background: var(--glass);
-  backdrop-filter: blur(16px);
-  padding: 32px;
-  border-radius: 22px;
-  text-align: center;
-  box-shadow: 0 30px 90px rgba(0,0,0,.6);
-  animation: fadeUp .8s ease;
-}
-
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(30px); }
-  to { opacity:1; transform:translateY(0); }
-}
-
-h1 {
-  margin-bottom: 10px;
-  background: var(--gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-input {
-  width: 100%;
-  padding: 15px;
-  margin-top: 14px;
-  border-radius: 14px;
-  border: none;
-  font-size: 15px;
-}
-
-.btn {
-  width: 100%;
-  padding: 16px;
-  margin-top: 16px;
-  border-radius: 16px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.btn-gold { background: var(--gold); color:#000; }
-.btn-dark { background:#000; color:#fff; }
-.btn-soft { background:rgba(255,255,255,.15); color:#fff; }
-
-.row {
-  display:flex;
-  gap:12px;
-  margin-top:16px;
-}
-
-.price {
-  background:rgba(255,255,255,.1);
-  padding:18px;
-  border-radius:16px;
-  margin-top:16px;
-}
-
-/* 🔴 INPUT ERROR ANIMATION */
-.input-error {
-  border:2px solid #ff4d4d;
-  box-shadow:0 0 12px rgba(255,77,77,.8);
-  animation:shake .35s;
-}
-
-@keyframes shake {
-  0%,100%{transform:translateX(0)}
-  25%{transform:translateX(-4px)}
-  50%{transform:translateX(4px)}
-  75%{transform:translateX(-4px)}
-}
-
-/* OVERLAY */
-.overlay {
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  z-index:99;
-}
-/* ================= EXCLUSIVE PREMIUM PAGE ================= */
-
+/* Wrapper keeps center focus */
 .exclusive-wrapper {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
+/* Base card (mobile-first) */
 .exclusive-card {
-  max-width: 420px;
   width: 100%;
+  max-width: 380px; /* iPhone perfect */
   background: linear-gradient(180deg, #181818, #0c0c0c);
   border-radius: 28px;
-  padding: 36px 28px;
+  padding: 32px 22px;
   box-shadow: 0 40px 120px rgba(0,0,0,0.9);
   text-align: center;
 }
 
+/* Title */
 .exclusive-title {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 600;
   color: #f7d774;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .exclusive-subtitle {
-  font-size: 14px;
+  font-size: 13px;
   opacity: 0.75;
-  margin-bottom: 26px;
+  margin-bottom: 22px;
 }
 
+/* Plans */
 .plans {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
+/* Individual plan card */
 .plan {
   background: #111;
   border-radius: 20px;
-  padding: 18px;
+  padding: 16px;
   position: relative;
   transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .plan:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.7);
 }
 
 .plan h2 {
   margin: 6px 0;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .plan p {
-  font-size: 14px;
+  font-size: 13px;
   opacity: .8;
 }
 
+/* Tags */
 .plan-tag {
   position: absolute;
   top: -10px;
-  left: 18px;
+  left: 16px;
   background: #333;
   color: #ccc;
   padding: 4px 10px;
@@ -185,6 +89,7 @@ input {
   color: #000;
 }
 
+/* Highlight styles */
 .highlight {
   border: 1px solid #f7d77455;
 }
@@ -194,12 +99,13 @@ input {
   border: 1px solid #f7d774;
 }
 
+/* Buttons */
 .plan-btn {
   width: 100%;
-  margin-top: 14px;
+  margin-top: 12px;
   padding: 14px;
   border-radius: 14px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   border: none;
   cursor: pointer;
@@ -218,11 +124,38 @@ input {
 .plan-btn.premium {
   background: linear-gradient(135deg,#ffe38a,#b48b1e);
   color: #000;
-  font-size: 16px;
+  font-size: 15px;
 }
 
+/* Footer note */
 .exclusive-note {
-  margin-top: 18px;
+  margin-top: 16px;
   font-size: 12px;
   opacity: 0.7;
+}
+
+/* ======================================================
+   DESKTOP OPTIMIZATION (THIS FIXES YOUR ISSUE)
+   ====================================================== */
+
+@media (min-width: 768px) {
+  .exclusive-card {
+    max-width: 460px;   /* wider on laptop */
+    padding: 36px 28px;
+  }
+
+  .exclusive-title {
+    font-size: 24px;
+  }
+
+  .plan h2 {
+    font-size: 24px;
+  }
+}
+
+/* Large screens (very wide monitors) */
+@media (min-width: 1200px) {
+  .exclusive-card {
+    max-width: 520px;  /* avoids tall skinny look */
+  }
 }
